@@ -95,8 +95,8 @@
                         </form>
                     </div>
                 </div>
-				<div class="text-center"><br><a href="register1.php" style="font-size:35px; color:black;">
-                            <b>REGISTER AS TRAINER<b></a>
+				<div class="text-center"><br><a href="register.php" style="font-size:35px; color:black;">
+                            <b>REGISTER AS STUDENT<b></a>
             </div>
         </div>
     </div>
@@ -106,13 +106,7 @@
 </body>
 
 </html>
-
-
-         <!-- $today = Date("Y-m-d");
-         $updatesql=mysqli_query($link,"update users set logindate= '$today' where email='$email' and password='$pass'"); -->
-       
-        
-		 <?php
+<?php
 include 'Connection.php';
 if(isset($_POST['submit']))
 {
@@ -120,17 +114,16 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $contact = $_POST['contact'];
 $password = $_POST['password'];
-$course = $_POST['course'];
+$address = $_POST['address'];
 
-$gender = $_POST['gender'];
-$usertype = "student";
-$status = "Nil";
-$today = Date("Y-m-d");
+$usertype = "Trainer";
+$status = "Waiting";
+$today = Date("Y-M-D");
 
 
-$query = "INSERT INTO register
-(name,gender,course, email ,contact,password,usertype,status)
-VALUES ('".$name."','".$gender."','".$course."','".$email."','".$contact."','".$password."','".$usertype."','".$status."')";
+$query = "INSERT INTO users
+(name, email ,contact,password,usertype,status,created_date)
+VALUES ('".$name."','".$email."','".$contact."','".$password."','".$usertype."','".$status."','".$today."')";
 mysqli_query($conn,$query)or die ('Error in updating Database');
 
 
@@ -148,7 +141,6 @@ mysqli_query($conn,$query)or die ('Error in updating Database');
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -163,9 +155,3 @@ mysqli_query($conn,$query)or die ('Error in updating Database');
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
-
-</html>
- 
- 
-   

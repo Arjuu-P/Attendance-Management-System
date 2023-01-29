@@ -120,17 +120,16 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $contact = $_POST['contact'];
 $password = $_POST['password'];
-$course = $_POST['course'];
+$address = $_POST['address'];
 
-$gender = $_POST['gender'];
 $usertype = "student";
-$status = "Nil";
-$today = Date("Y-m-d");
+$status = "Waiting";
+$today = Date("Y-M-D");
 
 
-$query = "INSERT INTO register
-(name,gender,course, email ,contact,password,usertype,status)
-VALUES ('".$name."','".$gender."','".$course."','".$email."','".$contact."','".$password."','".$usertype."','".$status."')";
+$query = "INSERT INTO users
+(name, email ,contact,password,usertype,status,created_date)
+VALUES ('".$name."','".$email."','".$contact."','".$password."','".$usertype."','".$status."','".$today."')";
 mysqli_query($conn,$query)or die ('Error in updating Database');
 
 
@@ -148,7 +147,6 @@ mysqli_query($conn,$query)or die ('Error in updating Database');
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -163,9 +161,7 @@ mysqli_query($conn,$query)or die ('Error in updating Database');
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
 
-</html>
  
  
    
