@@ -87,7 +87,7 @@ include 'Connection.php';
                 <span>SUBJECT</span>
                 <span>EXPERIENCE</span>
                 <span>STATUS</span>
-                <span>ACTIONS</span>
+                
                 
             </li>
     <?php
@@ -101,13 +101,7 @@ include 'Connection.php';
                 <span><?php echo $row["subject"]; ?></span>
                 <span><?php echo $row["exp"]; ?></span>
                 <span><?php echo $row["status"]; ?></span>
-                <span>
-                    <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                       <a class="btn btn-default"  href="confirm.php?id=<?php echo $row['id']; ?>">APPROVE</a>
-                        <a class="btn btn-default"  href="reject.php?id=<?php echo $row['id']; ?>">REJECT</a>
-                    </div>
-                </span>
-                
+                            
                
             </li>
 
