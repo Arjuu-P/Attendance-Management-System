@@ -25,14 +25,7 @@
         <link href="css/bootstrap-icons.css" rel="stylesheet">
 
         <link href="css/templatemo-leadership-event.css" rel="stylesheet">
-        
-<!--
 
-TemplateMo 575 Leadership Event
-
-https://templatemo.com/tm-575-leadership-event
-
--->
     </head>
     
     <body>
@@ -132,7 +125,7 @@ https://templatemo.com/tm-575-leadership-event
         ?>
         <script>
           alert('Successfully Log In');
-          document.location='../ADMIN/index.php?id=<?php echo $row['id']; ?>'
+          document.location='ADMIN/index.php?id=<?php echo $row['id']; ?>'
         </script>
         <?php
     }

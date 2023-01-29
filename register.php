@@ -95,7 +95,10 @@
                         </form>
                     </div>
                 </div>
-				<div class="text-center"><br><a href="register1.php" style="font-size:35px; color:black;">
+				<div class="text-center"><br>
+            
+                <a href="register1.php" style="font-size:35px; color:black;border: 3px solid rebeccapurple;padding: .3em;">
+
                             <b>REGISTER AS TRAINER<b></a>
             </div>
         </div>
