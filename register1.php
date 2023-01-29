@@ -84,7 +84,7 @@
                                     <input type="password" class="form-control" required="" id="password" name="password"style="text-color:#000;" placeholder="Password">
                                </div>
 							   <div class="control-group"><br>
-                                    <input type="text" class="form-control" required="" id="contact" name="contact"style="text-color:#000;" placeholder="Contact">
+                                    <input type="text" class="form-control" required="" id="contact" name="contact"style="text-color:#000;" maxlength=10 placeholder="Contact">
                                </div>
 							   <div class="control-group"><br>
                                     <input type="text" class="form-control" required="" id="Address" name=" Address"style="text-color:#000;" placeholder="Address">
@@ -114,23 +114,23 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $contact = $_POST['contact'];
 $password = $_POST['password'];
-$address = $_POST['address'];
+$address = $_POST['Address'];
 
-$usertype = "Trainer";
+$usertype = "trainer";
 $status = "Waiting";
 $today = Date("Y-M-D");
 
 
 $query = "INSERT INTO users
-(name, email ,contact,password,usertype,status,created_date)
-VALUES ('".$name."','".$email."','".$contact."','".$password."','".$usertype."','".$status."','".$today."')";
+(name, email ,contact,password,address,usertype,status,created_date)
+VALUES ('".$name."','".$email."','".$contact."','".$password."','".$address."','".$usertype."','".$status."','".$today."')";
 mysqli_query($conn,$query)or die ('Error in updating Database');
 
 
 ?>
                 <script type="text/javascript">
             alert("Successfully Registered.");
-            window.location = "login.php";
+            window.location = "index.php";
         </script>
                 <?php
 }

@@ -1,17 +1,17 @@
 <?php
-$link=mysqli_connect('localhost','root','');
+$conn=mysqli_connect('localhost','root','');
 $db="attendance_management_system";
-if(!$link)
+if(!$conn)
 {
-	die("Could not connect:".mysqli_error() );
+	die("Could not connect:".mysqli_error($conn) );
 }
 else
 {
 	//echo 'connected successfully';
 }
-$db=mysqli_select_db($link,"attendance_management_system");
+$db=mysqli_select_db($conn,"attendance_management_system");
 if(!$db)
 {
-	die("Could not select:".mysqli_error($link));
+	die("Could not select:".mysqli_error($conn));
 }
 ?>

@@ -72,7 +72,7 @@
                     <div class="contact-form bg-secondary rounded p-5" >
                         <form id="submitForm" action="" method="POST" >
 						<div class="control-group ">
-                                    <input type="name" class="form-control" id="name" required="" name="name"style="text-color:#000;" placeholder="Name">
+                                    <input type="text" class="form-control" id="name" required="" name="name"style="text-color:#000;" placeholder="Name">
                                 
                             </div> 
                             <div class="control-group "><br>
@@ -84,10 +84,10 @@
                                     <input type="password" class="form-control" required="" id="password" name="password"style="text-color:#000;" placeholder="Password">
                                </div>
 							   <div class="control-group"><br>
-                                    <input type="text" class="form-control" required="" id="contact" name="contact"style="text-color:#000;" placeholder="Contact">
+                                    <input type="text" class="form-control" required="" id="contact" name="contact"style="text-color:#000;" maxlength=10 placeholder="Contact">
                                </div>
 							   <div class="control-group"><br>
-                                    <input type="text" class="form-control" required="" id="Address" name=" Address"style="text-color:#000;" placeholder="Address">
+                                    <input type="text" class="form-control" required="" id="address" name=" address"style="text-color:#000;" placeholder="Address">
                                </div>
                             <div class="text-center"><br>
                             <button class="btn btn-primary btn-block " name="submit" type="submit" value="submit">REGISTER</button>
@@ -123,20 +123,21 @@ $password = $_POST['password'];
 $address = $_POST['address'];
 
 $usertype = "student";
-$status = "Waiting";
+$status = "";
 $today = Date("Y-M-D");
 
 
+
 $query = "INSERT INTO users
-(name, email ,contact,password,usertype,status,created_date)
-VALUES ('".$name."','".$email."','".$contact."','".$password."','".$usertype."','".$status."','".$today."')";
+(name, email ,contact,password,address,usertype,status,created_date)
+VALUES ('".$name."','".$email."','".$contact."','".$password."','".$address."','".$usertype."','".$status."','".$today."')";
 mysqli_query($conn,$query)or die ('Error in updating Database');
 
 
 ?>
                 <script type="text/javascript">
             alert("Successfully Registered.");
-            window.location = "login.php";
+            window.location = "index.php";
         </script>
                 <?php
 }
