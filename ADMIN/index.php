@@ -14,6 +14,7 @@ include 'Connection.php';
  <meta name="description" content="">
  <meta name="author" content="">
 <title>Attendance Management System </title>
+<link href='https://css.gg/pen.css' rel='stylesheet'>
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -65,7 +66,7 @@ include 'Connection.php';
     <span>SUBJECT</span>
     <span>EXPERIENCE</span>
     <span>STATUS</span>
-    <span>ACTION</span>
+    <span>EDIT</span>
     </li>
 <?php
     while($row = $result->fetch_assoc()) {?>         
@@ -76,12 +77,8 @@ include 'Connection.php';
     <span><?php echo $row["subject"]; ?></span>
     <span><?php echo $row["exp"]; ?></span>
     <span><?php echo $row["status"]; ?></span>
-    <span>
-    <div class="btn-group btn-group-xs" role="group" aria-label="...">
-    <a class="btn btn-default"  href="confirm.php?id=<?php echo $row['id']; ?>">APPROVE</a>
-    <a class="btn btn-default"  href="reject.php?id=<?php echo $row['id']; ?>">REJECT</a>
-    </div>
-    </span>
+    <span><a href="trainersts.php"><i class="gg-pen"></i></a></span>
+    
     </li>
 <?php
   }
