@@ -5,18 +5,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Attendance Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<title>Attendance Management System</title>
 <!-- CSS FILES -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
-        <link href="css/templatemo-leadership-event.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-leadership-event.css" rel="stylesheet">
     </head>
     
 
@@ -50,7 +50,7 @@
     <div class="row justify-content-center" >
     <div class="col-lg-6">
     <div class="contact-form bg-secondary rounded p-5" >
-        <form id="submitForm" action="" method="POST" >
+      <form id="submitForm" action="" method="POST" >
 		<div class="control-group ">
             <input type="text" class="form-control" id="name" required="" name="name"style="text-color:#000;" placeholder="Name">
         </div> 
@@ -69,14 +69,14 @@
         <div class="text-center"><br>
             <button class="btn btn-primary btn-block " name="submit" type="submit" value="submit">REGISTER</button>
         </div>
-        </form>
-        </div>
-        </div>
-		<div class="text-center"><br>
+      </form>
+    </div>
+    </div>
+	<div class="text-center"><br>
         <a href="register1.php" style="font-size:35px; color:black;border: 3px solid rebeccapurple;padding: .3em;">
-          <b>REGISTER AS TRAINER<b></a>
-        </div>
-        </div>
+        <b>REGISTER AS TRAINER<b></a>
+    </div>
+    </div>
     </div>
 </section>
 </body>
