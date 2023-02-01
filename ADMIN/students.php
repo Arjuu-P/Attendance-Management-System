@@ -74,7 +74,7 @@ include 'Connection.php';
     <span><?php echo $row["email"]; ?> </span>
     <span><?php echo $row["contact"]; ?></span>
     <span><?php echo $row["subject"]; ?></span>
-    <span><a href="trainersts.php"><i class="gg-pen"></i></a></span>
+    <span><a href="sessionadd.php"><i class="gg-pen"></i></a></span>
     </li>
 <?php
   }
