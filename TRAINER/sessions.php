@@ -2,10 +2,9 @@
 include 'Connection.php';
  session_start(); 
  $id=$_SESSION['user_id'];
- $sql = "SELECT * FROM users where  usertype='student'";
+ $sql = "SELECT * FROM users where  usertype='trainer' AND trainer_id='user_id'";
  $result = $conn->query($sql);
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,9 +36,14 @@ include 'Connection.php';
     <a class="nav-link " href="index.php">PROFILE</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link " href="index.php">ATTEND SESSIONS</a>
+    <a class="nav-link " href="index.php">STUDENTS</a>
     </li>
-    
+    <li class="nav-item">
+    <a class="nav-link " href="index.php">SESSIONS</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link " href="index.php">ATTENDANCE</a>
+    </li>
     <li class="nav-item">
     <a class="nav-link " href="../logout.php">LOGOUT</a>
     </li>
@@ -48,37 +52,42 @@ include 'Connection.php';
     </div>
   </nav>
 <main>
-<section class="contact ">
-    <div class="text-center mb-5">
-    <h1 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;" style="background-color:#b3b3b3;">REGISTER AS STUDENT</h1>
-    </div>
-    <div class="row justify-content-center" >
-    <div class="col-lg-6">
-    <div class="contact-form bg-secondary rounded p-5" >
-      <form id="submitForm" action="" method="POST" >
-		<div class="control-group ">
-        <label name="name"><?php echo $row["name"]; ?>   </div> 
-        <div class="control-group "><br>
-        <label name="email"><?php echo $row["email"]; ?>          </div>
-        <div class="control-group"><br>
-        <label name="contact"><?php echo $row["contact"]; ?>          </div>
-		<div class="control-group"><br>
-    <input type="text" class="form-control" required="" id="address" name=" address"style="text-color:#000;" placeholder="Address">
-        </div>
-		<div class="control-group"><br>
-    <input type="text" class="form-control" required="" id="subject" name=" subject"style="text-color:#000;" placeholder="Subject">
-        </div>
-        <div class="text-center"><br>
-            <button class="btn btn-primary btn-block " name="submit" type="submit" value="submit">UPDATE</button>
-        </div>
-      </form>
-    </div>
-    </div>
-	
-    </div>
-    </div>
-</section>
+<main>
+    <div class="container" >
+    <div class="listWrap">
+    <h1 style=" text-align:center;"> SESSIONS </h1>
+    <ul class="list"  style="margin-left:15%; width:80%">
+<?php
+    if ($result->num_rows > 0) { ?>	
+    <li>
+    <span>TRAINER NAME</span>
+    <span>SUBJECT</span>
+    <span>DATE</span>
+    <span>TIME</span>
+    </li>
+<?php
+    while($row = $result->fetch_assoc()) {?>         
+    <li>
+    <span><?php echo $row["name"]; ?></span>
+    <span><?php echo $row["subject"]; ?></span>
+    <span><?php echo $row["date"]; ?></span>
+    <span><?php echo $row["time"]; ?></span>
+    </li>
+<?php
+  }
+?>               
+    </ul>
+<?php
+ }
+    else {
+    echo "0 results";
+     }
+    $conn->close();
+?>
+   </div>
+   </div>
 </main>
+
 </body>
 </html>
 

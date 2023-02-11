@@ -2,7 +2,7 @@
 include 'Connection.php';
  session_start(); 
  $id=$_SESSION['user_id'];
- $sql = "SELECT * FROM users where  usertype='trainer'";
+ $sql = "SELECT * FROM users where  usertype='trainer'AND status='Confirmed'";
  $result = $conn->query($sql);
 ?>
 
@@ -53,33 +53,27 @@ include 'Connection.php';
     </div>
   </nav>
 <main>
-    <div class="container" >
+<div class="container" >
     <div class="listWrap">
-    <h1 style=" text-align:center;"> TRAINER'S APPLIED</h1>
+    <h1 style=" text-align:center;"> SESSIONS </h1>
     <ul class="list"  style="margin-left:15%; width:80%">
 <?php
     if ($result->num_rows > 0) { ?>	
     <li>
-    <span>NAME</span>
-    <span>EMAIL</span>
-    <span>CONTACT</span>
+    <span>STUDENT NAME</span>
     <span>SUBJECT</span>
-    <span>EXPERIENCE</span>
-    <span>STATUS</span>
-    <span>EDIT</span>
+    <span>DATE</span>
+    <span>TIME</span>
     </li>
 <?php
     while($row = $result->fetch_assoc()) {?>         
     <li>
     <span><?php echo $row["name"]; ?></span>
-    <span><?php echo $row["email"]; ?> </span>
-    <span><?php echo $row["contact"]; ?></span>
     <span><?php echo $row["subject"]; ?></span>
-    <span><?php echo $row["exp"]; ?></span>
-    <span><?php echo $row["status"]; ?></span>
-    <span><a href="trainersts.php"><i class="gg-pen"></i></a></span>
-    
+    <span><?php echo $row["date"]; ?></span>
+    <span><?php echo $row["time"]; ?></span>
     </li>
+    <h3 style=" text-align:center;"> <i class="gg-pen">ADD attendance </i></h3>
 <?php
   }
 ?>               

@@ -62,7 +62,7 @@ include 'Connection.php';
     <div class="contact-form bg-secondary rounded p-5" >
       <form id="submitForm" action="" method="POST" >
 		<div class="control-group ">
-<label name="name"><?php echo $row["name"]; ?>   </div> 
+        <label name="name"><?php echo $row["name"]; ?>   </div> 
         <div class="control-group "><br>
         <label name="email"><?php echo $row["email"]; ?>          </div>
         <div class="control-group"><br>
