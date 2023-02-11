@@ -2,7 +2,7 @@
 include 'Connection.php';
  session_start(); 
  $id=$_SESSION['user_id'];
- $sql = "SELECT * FROM users where  usertype='trainer'AND status='Confirmed'";
+ $sql = "SELECT * FROM users where  usertype='trainer'";
  $result = $conn->query($sql);
 ?>
 
@@ -53,40 +53,46 @@ include 'Connection.php';
     </div>
   </nav>
 <main>
-<section class="contact ">
-    <div class="text-center mb-5">
-    <h1 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;" style="background-color:#b3b3b3;">REGISTER AS STUDENT</h1>
-    </div>
-    <div class="row justify-content-center" >
-    <div class="col-lg-6">
-    <div class="contact-form bg-secondary rounded p-5" >
-      <form id="submitForm" action="" method="POST" >
-		<div class="control-group ">
-<label name="name"><?php echo $row["name"]; ?>   </div> 
-        <div class="control-group "><br>
-        <label name="email"><?php echo $row["email"]; ?>          </div>
-        <div class="control-group"><br>
-        <label name="contact"><?php echo $row["contact"]; ?>          </div>
-		<div class="control-group"><br>
-    <input type="text" class="form-control" required="" id="address" name=" address"style="text-color:#000;" placeholder="Address">
-        </div>
-		<div class="control-group"><br>
-    <input type="text" class="form-control" required="" id="subject" name=" subject"style="text-color:#000;" placeholder="Subject">
-        </div>
-        <div class="control-group"><br>
-    <input type="text" class="form-control" required="" id="exp" name=" exp"style="text-color:#000;" placeholder="Experience">
-        </div>
-        <div class="text-center"><br>
-            <button class="btn btn-primary btn-block " name="submit" type="submit" value="submit">UPDATE</button>
-        </div>
-      </form>
-    </div>
-    </div>
-	
-    </div>
-    </div>
-</section>
-
+    <div class="container" >
+    <div class="listWrap">
+    <h1 style=" text-align:center;"> TRAINER'S APPLIED</h1>
+    <ul class="list"  style="margin-left:15%; width:80%">
+<?php
+    if ($result->num_rows > 0) { ?>	
+    <li>
+    <span>NAME</span>
+    <span>EMAIL</span>
+    <span>CONTACT</span>
+    <span>SUBJECT</span>
+    <span>EXPERIENCE</span>
+    <span>STATUS</span>
+    <span>EDIT</span>
+    </li>
+<?php
+    while($row = $result->fetch_assoc()) {?>         
+    <li>
+    <span><?php echo $row["name"]; ?></span>
+    <span><?php echo $row["email"]; ?> </span>
+    <span><?php echo $row["contact"]; ?></span>
+    <span><?php echo $row["subject"]; ?></span>
+    <span><?php echo $row["exp"]; ?></span>
+    <span><?php echo $row["status"]; ?></span>
+    <span><a href="trainersts.php"><i class="gg-pen"></i></a></span>
+    
+    </li>
+<?php
+  }
+?>               
+    </ul>
+<?php
+ }
+    else {
+    echo "0 results";
+     }
+    $conn->close();
+?>
+   </div>
+   </div>
 </main>
 </body>
 </html>
