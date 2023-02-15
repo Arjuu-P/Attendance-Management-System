@@ -105,7 +105,7 @@
          ?>
          <script>
            alert('Successfully Log In');
-           document.location='../STUDENT/index.php?id=<?php echo $row['id']; ?>'
+           document.location='STUDENT/index.php?id=<?php echo $row['id']; ?>'
          </script>
          <?php
      }
@@ -118,7 +118,7 @@
       ?>
       <script>
         alert('Successfully Log In');
-        document.location='../TRAINER/index.php?id=<?php echo $row['id']; ?>'
+        document.location='TRAINER/index.php?id=<?php echo $row['id']; ?>'
          </script>
       <?php
     }

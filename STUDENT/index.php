@@ -1,10 +1,13 @@
 <?php
-include 'Connection.php';
- session_start(); 
- $id=$_SESSION['user_id'];
- $sql = "SELECT * FROM users where  usertype='student'";
- $result = $conn->query($sql);
-?>
+  include 'Connection.php';
+  session_start();
+
+$id=$_GET['id'];
+$_SESSION["user_id"]=$id;
+
+$query=mysqli_query($conn,"SELECT * FROM users where id='$id'")or die(mysqli_error());
+$row=mysqli_fetch_array($query);
+  ?>
 
 <!doctype html>
 <html lang="en">
@@ -57,11 +60,19 @@ include 'Connection.php';
     <div class="contact-form bg-secondary rounded p-5" >
       <form id="submitForm" action="" method="POST" >
 		<div class="control-group ">
-        <label name="name"><?php echo $row["name"]; ?>   </div> 
+    <lSabel for="username">Name</lSabel>
+ <input type="text" class="form-control " pattern="[A-Za-z ]*" id="username"
+                                     required="" name="name" value=" <?php echo $row['name']; ?>">
+     <lSabel for="username">email</lSabel>
+   <input type="text" class="form-control " pattern="[A-Za-z ]*" id="username"
+    required="" name="name" value=" <?php echo $row['email']; ?>">
+                             
+
+       <?php echo $row["name"]; ?>   </div> 
         <div class="control-group "><br>
-        <label name="email"><?php echo $row["email"]; ?>          </div>
+        <?php echo $row["email"]; ?>          </div>
         <div class="control-group"><br>
-        <label name="contact"><?php echo $row["contact"]; ?>          </div>
+       <?php echo $row["contact"]; ?>          </div>
 		<div class="control-group"><br>
     <input type="text" class="form-control" required="" id="address" name=" address"style="text-color:#000;" placeholder="Address">
         </div>
