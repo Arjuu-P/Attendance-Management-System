@@ -110,7 +110,7 @@
          <?php
      }
  
-    $query=mysqli_query($conn,"SELECT * FROM user WHERE email = '$user' AND password = '$pass'  AND usertype = 'trainer' AND status='Confirmed'");
+    $query=mysqli_query($conn,"SELECT * FROM users WHERE email = '$user' AND password = '$pass'  AND usertype = 'trainer' AND status='Confirmed'");
     $num_rows=mysqli_num_rows($query);
     $row=mysqli_fetch_array($query);
       if ($num_rows>0)

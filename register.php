@@ -33,7 +33,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-        <a class="nav-link " href="index.html">Home</a>
+        <a class="nav-link " href="index.php">Home</a>
         </li>
         <li class="nav-item">
         <a class="nav-link custom-btn btn d-none d-lg-block" href="index.php">LOGIN </a>
@@ -48,28 +48,57 @@
     <h1 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;" style="background-color:#b3b3b3;">REGISTER AS STUDENT</h1>
     </div>
     <div class="row justify-content-center" >
-    <div class="col-lg-6">
-    <div class="contact-form bg-secondary rounded p-5" >
-      <form id="submitForm" action="" method="POST" >
-		<div class="control-group ">
-            <input type="text" class="form-control" id="name" required="" name="name"style="text-color:#000;" placeholder="Name">
-        </div> 
-        <div class="control-group "><br>
-            <input type="email" class="form-control" id="username" required="" name="email"style="text-color:#000;" placeholder="E-mail">
-        </div>
-        <div class="control-group"><br>
-            <input type="password" class="form-control" required="" id="password" name="password"style="text-color:#000;" placeholder="Password">
-        </div>
-		<div class="control-group"><br>
-            <input type="text" class="form-control" required="" id="contact" name="contact"style="text-color:#000;" maxlength=10 placeholder="Contact">
-        </div>
-		<div class="control-group"><br>
-            <input type="text" class="form-control" required="" id="address" name=" address"style="text-color:#000;" placeholder="Address">
-        </div>
-        <div class="text-center"><br>
-            <button class="btn btn-primary btn-block " name="submit" type="submit" value="submit">REGISTER</button>
-        </div>
-      </form>
+    <div class="col-lg-7">
+    <div class="contact-form bg-secondary rounded p-2" >
+    <form id="submitForm" action="" method="POST">
+                            <div class="control-group">
+                            <lSabel for="username">Name</lSabel>
+                                    <input type="text" class="form-control " pattern="[A-Za-z ]*" id="username"
+                                     required="" name="name" value="">
+                                
+                            </div>
+                            
+                            <div class="control-group">
+                            <lSabel for="username">Email</lSabel>
+                                    <input type="email" class="form-control text-lowercase" id="username" required="" name="email" value="">
+                            </div>
+                            <div class="control-group">
+                            <div class="form-group required">
+                                    <lSabel for="username">Please choose Your Course</lSabel>
+                                    <select  class="form-control " id="username" required="" name="course" >
+                                        <option>Select</option>
+                                        <option>BCA</option>
+                                        <option>BSc Computer Science</option>
+                                        <option>MCA</option>
+                                        <option>MSc Computer Science</option>
+</select>
+
+                                </div> 
+                            <div class="form-group required">
+                                    <lSabel for="username">Gender</lSabel>
+                                    <select  class="form-control text-lowercase" id="username" required="" name="gender" >
+                                        <option>Select</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Others</option>
+</select>
+
+                                </div> 
+                                <div class="form-group required">
+                                    <lSabel for="username">Contact</lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username"
+                                     pattern="[0-9]{10}" maxlength=10 required="" name="contact" value="">
+                                </div>  
+                            <div class="control-group">
+                            <lSabel class="d-flex flex-row align-items-center" for="password">Password </lSabel>
+                                    <input type="password" class="form-control" required="" id="password" name="password" value="" required>
+                               
+                            </div>
+                            <div class="text-center"><br>
+                            <button class="btn btn-primary btn-block py-3 px-5" name="submit" type="submit">REGISTER</button>
+                            </div>
+                            
+                        </form>
     </div>
     </div>
 	<div class="text-center"><br>
@@ -86,19 +115,20 @@
 include 'Connection.php';
 if(isset($_POST['submit']))
 {
-$name = $_POST['name'];
-$email = $_POST['email'];
-$contact = $_POST['contact'];
-$password = $_POST['password'];
-$address = $_POST['address'];
-$usertype = "student";
-$status = "";
-$today = Date("Y-M-D");
-
-$query = "INSERT INTO users
-(name, email ,contact,password,address,usertype,status,created_date)
-VALUES ('".$name."','".$email."','".$contact."','".$password."','".$address."','".$usertype."','".$status."','".$today."')";
-mysqli_query($conn,$query)or die ('Error in updating Database');
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $contact = $_POST['contact'];
+    $password = $_POST['password'];
+    $course = $_POST['course'];
+    
+    $gender = $_POST['gender'];
+    $usertype = "student";
+    $status = "";
+    
+    $query = "INSERT INTO users
+    (name,gender,course, email ,contact,password,usertype,status)
+    VALUES ('".$name."','".$gender."','".$course."','".$email."','".$contact."','".$password."','".$usertype."','".$status."')";
+    mysqli_query($conn,$query)or die ('Error in updating Database');
 ?>
     <script type="text/javascript">
      alert("Successfully Registered.");
