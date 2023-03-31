@@ -2,7 +2,7 @@
 include 'Connection.php';
  session_start(); 
  $id=$_SESSION['user_id'];
- $sql = "SELECT * FROM users where  usertype='trainer'";
+ $sql = "SELECT * FROM attandance ";
  $result = $conn->query($sql);
 ?>
 
@@ -42,9 +42,7 @@ include 'Connection.php';
     <div>
     </div>
   </nav>
-<main>    
-        <h1 style=" text-align:center;"> TRAINER'S APPLIED</h1>
-        <style>
+<main> <style>
 table, th,tr, td {
   border: 2px solid black;}
 th {
@@ -52,31 +50,31 @@ th {
 }
 </style>
         <table style=" text-align:center;margin:5%; width:90%;">
-               
-    <?php
-                if ($result->num_rows > 0) { ?>	            
+<h1 style=" text-align:center;"> VIEW ATTENDANCE</h1>
+             
+        <?php
+                if ($result->num_rows > 0) { ?>	
+                
                 <th>Name</th>
                 <th>Email</th>
-                <th>Subject</th>
+                <th>Course</th>
                 <th>Contact</th>
-                <th>Status</th>
-                <th>Actions</th>
-            
+                <th>Date</th>
+                <th>Attendance Status</th>
+                
+
     <?php
-                while($row = $result->fetch_assoc()) {?>  
-                <tr>       
+                while($row = $result->fetch_assoc()) {?>         
+             
+            
+            <tr>
                 <td><?php echo $row["name"]; ?></td>
                 <td><?php echo $row["email"]; ?> </td>
                 <td><?php echo $row["course"]; ?></td>
                 <td><?php echo $row["contact"]; ?></td>
+                <td><?php echo $row["date"]; ?></td>
                 <td><?php echo $row["status"]; ?></td>
-                <td>
-                    <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                       <a class="nav-link custom-btn btn d-none d-lg-block"  href="confirm.php?id=<?php echo $row['id']; ?>">Approve</a>
-                        <a class="nav-link custom-btn btn d-none d-lg-block"  href="reject.php?id=<?php echo $row['id']; ?>">Reject</a>
-                    </div>
-                </td>
-                
+               
                
                 </tr>
 
@@ -86,7 +84,7 @@ th {
 
             
             
-            </table>
+        </ul>
         <?php
                 }
                 else {
@@ -94,10 +92,6 @@ th {
                 }
                 $conn->close();
                 ?>
-
-    </div>
-   
-</div>
 </main>
 </body>
 </html>

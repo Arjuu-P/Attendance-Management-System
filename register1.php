@@ -118,8 +118,8 @@ if(isset($_POST['submit']))
     $course = $_POST['course'];
     
     $gender = $_POST['gender'];
-    $usertype = "teacher";
-    $status = "waiting";
+    $usertype = "trainer";
+    $status = "Waiting";
     
     $query = "INSERT INTO users
     (name,gender,course, email ,contact,password,usertype,status)

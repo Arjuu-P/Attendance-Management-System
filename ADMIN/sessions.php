@@ -2,7 +2,7 @@
 include 'Connection.php';
  session_start(); 
  $id=$_SESSION['user_id'];
- $sql = "SELECT * FROM users where  usertype='trainer'";
+ $sql = "SELECT * FROM sessions ";
  $result = $conn->query($sql);
 ?>
 
@@ -33,47 +33,46 @@ include 'Connection.php';
     </a>
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ms-auto">
-    <li class="nav-item">
     <a class="nav-link " href="index.php">TRAINERS</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link " href="index.php">STUDENTS</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link " href="index.php">SESSIONS</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link " href="index.php">ATTENDANCE</a>
-    </li>
-    <li class="nav-item">
+    <a class="nav-link " href="students.php">STUDENTS</a>
+    <a class="nav-link " href="sessions.php">SESSIONS</a>
+    <a class="nav-link " href="attendance.php">ATTENDANCE</a>
     <a class="nav-link " href="../logout.php">LOGOUT</a>
-    </li>
     </ul>
     <div>
     </div>
   </nav>
 <main>
-    <div class="container" >
-    <div class="listWrap">
-    <h1 style=" text-align:center;"> SESSIONS </h1>
-    <ul class="list"  style="margin-left:15%; width:80%">
+<style>
+table, th,tr, td {
+  border: 2px solid black;}
+th {
+  background-color: #96D4D4;
+}
+</style>
+<h1 style=" text-align:center;"> VIEW SESSION</h1>
+
+        <table style=" text-align:center;margin-left:5%;margin-right:5%; width:90%;">
+             
+       
 <?php
     if ($result->num_rows > 0) { ?>	
-    <li>
-    <span>TRAINER NAME</span>
-    <span>SUBJECT</span>
-    <span>DATE</span>
-    <span>TIME</span>
-    </li>
+    <th>TRAINER NAME</th>
+    <th>COURSE</th>
+    <TH>DATE</TH>
+    <th>TIME</th>
+    <th>LINK</th>
+
 <?php
     while($row = $result->fetch_assoc()) {?>         
-    <li>
-    <span><?php echo $row["name"]; ?></span>
-    <span><?php echo $row["subject"]; ?></span>
-    <span><?php echo $row["date"]; ?></span>
-    <span><?php echo $row["time"]; ?></span>
-    </li>
-    <h3 style=" text-align:center;"> <i class="gg-pen">ADD SESSIONS </i></h3>
+    <tr>
+    <td><?php echo $row["trainer"]; ?></td>
+    <td><?php echo $row["course"]; ?></td>
+    <td><?php echo $row["date"]; ?></td>
+    <td><?php echo $row["time"]; ?></td>
+    <td><?php echo $row["link"]; ?></td>
+    </tr>
+
 <?php
   }
 ?>               

@@ -33,66 +33,71 @@ include 'Connection.php';
     </a>
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ms-auto">
-    <li class="nav-item">
     <a class="nav-link " href="index.php">TRAINERS</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link " href="index.php">STUDENTS</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link " href="index.php">SESSIONS</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link " href="index.php">ATTENDANCE</a>
-    </li>
-    <li class="nav-item">
+    <a class="nav-link " href="students.php">STUDENTS</a>
+    <a class="nav-link " href="sessions.php">SESSIONS</a>
+    <a class="nav-link " href="attendance.php">ATTENDANCE</a>
     <a class="nav-link " href="../logout.php">LOGOUT</a>
-    </li>
     </ul>
     <div>
     </div>
   </nav>
-<main>
-    <div class="container" >
-    <div class="listWrap">
-    <h1 style=" text-align:center;"> TRAINER'S APPLIED</h1>
-    <ul class="list"  style="margin-left:15%; width:80%">
-<?php
-    if ($result->num_rows > 0) { ?>	
-    <li>
-    <span>NAME</span>
-    <span>EMAIL</span>
-    <span>CONTACT</span>
-    <span>SUBJECT</span>
-    <span>EXPERIENCE</span>
-    <span>STATUS</span>
-    <span>EDIT</span>
-    </li>
-<?php
-    while($row = $result->fetch_assoc()) {?>         
-    <li>
-    <span><?php echo $row["name"]; ?></span>
-    <span><?php echo $row["email"]; ?> </span>
-    <span><?php echo $row["contact"]; ?></span>
-    <span><?php echo $row["subject"]; ?></span>
-    <span><?php echo $row["exp"]; ?></span>
-    <span><?php echo $row["status"]; ?></span>
-    <span><a href="trainersts.php"><i class="gg-pen"></i></a></span>
-    
-    </li>
-<?php
-  }
-?>               
-    </ul>
-<?php
- }
-    else {
-    echo "0 results";
-     }
-    $conn->close();
-?>
-   </div>
-   </div>
+<main>    
+        <h1 style=" text-align:center;"> TRAINER'S APPLIED</h1>
+        <style>
+table, th,tr, td {
+  border: 2px solid black;}
+th {
+  background-color: #96D4D4;
+}
+</style>
+        <table style=" text-align:center;margin:5%; width:90%;">
+               
+    <?php
+                if ($result->num_rows > 0) { ?>	            
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th>Actions</th>
+            
+    <?php
+                while($row = $result->fetch_assoc()) {?>  
+                <tr>       
+                <td><?php echo $row["name"]; ?></td>
+                <td><?php echo $row["email"]; ?> </td>
+                <td><?php echo $row["course"]; ?></td>
+                <td><?php echo $row["contact"]; ?></td>
+                <td><?php echo $row["status"]; ?></td>
+                <td>
+                    <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                       <a class="nav-link custom-btn btn d-none d-lg-block"  href="confirm.php?id=<?php echo $row['id']; ?>">Approve</a>
+                        <a class="nav-link custom-btn btn d-none d-lg-block"  href="reject.php?id=<?php echo $row['id']; ?>">Reject</a>
+                    </div>
+                </td>
+                
+               
+                </tr>
+
+            <?php
+              }
+              ?>               
+
+            
+            
+            </table>
+        <?php
+                }
+                else {
+                  echo "0 results";
+                }
+                $conn->close();
+                ?>
+
+    </div>
+   
+</div>
 </main>
 </body>
 </html>

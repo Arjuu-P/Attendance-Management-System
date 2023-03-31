@@ -7,5 +7,5 @@ $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 ?>
     <script type="text/javascript">
     alert("Rejected Successfully.");
-    window.location = "teacher.php";
+    window.location = "index.php";
     </script>

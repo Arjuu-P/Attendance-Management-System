@@ -2,7 +2,7 @@
 include 'Connection.php';
  session_start(); 
  $id=$_SESSION['user_id'];
- $sql = "SELECT * FROM users where  usertype='trainer'AND status='Confirmed'";
+ $sql = "SELECT * FROM users where  usertype='trainer'AND status='Approved'";
  $result = $conn->query($sql);
 ?>
 
